@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(
         "AllowFrontend", 
         policy => policy
-            .WithOrigins("http://localhost:5173")
+            .SetIsOriginAllowed(_ => true)
             .AllowAnyHeader()
             .AllowAnyMethod()
     );
@@ -31,6 +31,7 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
+app.UseRouting();
 app.UseCors("AllowFrontend");
 app.MapControllers();
 app.Run();

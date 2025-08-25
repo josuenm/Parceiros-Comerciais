@@ -1,4 +1,6 @@
 # Parceiros Comerciais
+Este projeto gerencia parceiros comerciais e foi desenvolvido com backend em C# (.NET 8.0) e frontend em React.
+Usei Docker para facilitar a execução e TanStack Query para caching eficiente no frontend.
 
 ### Backend
 - C#
@@ -15,7 +17,17 @@
 - Tailwind
 - Shadcn
 
-## Como iniciar o projeto?
-O projeto esta com docker para facilitar a vida de vocês! Se ja estiver com o Docker instalado, apenas execute `docker-compose up --build-d` na raíz do projeto.
+## Como iniciar o projeto
 
-Após isso acesse a rota `http://localhost:5173`.
+### Pré-requisitos
+- Docker instalado
+
+### Passos
+1. Na raíz do projetoo, execute:
+```sh
+docker-compose up --build -d
+```
+2. Acesse o frontend em:
+```sh
+http://localhost:5173
+```

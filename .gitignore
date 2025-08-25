@@ -1,0 +1,21 @@
+# Build Folders
+bin/
+obj/
+*.db
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.vs/
+
+# Rider/JetBrains
+.idea/
+
+# Node
+node_modules/
+dist/
+.env
+
+# Docker
+**/Dockerfile.*

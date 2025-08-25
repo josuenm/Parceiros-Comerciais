@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: ParceirosComerciaisBackend/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=db,1433;Database=ParceirosComerciais;User Id=sa;Password=J0sue@2025Test;TrustServerCertificate=True;
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ParceirosComerciaisFrontend/Dockerfile
+      args:
+        VITE_BACKEND_URL: "http://localhost:8080"
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=J0sue@2025Test
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:

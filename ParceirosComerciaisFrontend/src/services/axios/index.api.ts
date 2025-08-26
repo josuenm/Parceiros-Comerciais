@@ -7,5 +7,6 @@ export const api = axios.create({
 });
 
 api.interceptors.response.use(res => res.data, error => {
-    throw error;
+    let errorMsg = error?.response?.data || error.message;
+    throw new Error(errorMsg);
 });

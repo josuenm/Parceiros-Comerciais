@@ -1,0 +1,28 @@
+
+
+
+
+POST http://localhost:8080/api/v1/parceiros
+Content-Type: application/json
+
+{
+    "razaoSocial": "59.978.367 JOSUE NASCIMENTO MENDONCA",
+    "nomeFantasia": "",
+    "segmento": "Tecnologia",
+    "categoria": "Tecnologia",
+    "municipio": "JACAREI",
+    "bairro": "JARDIM BELA VISTA",
+    "logradouro": "RUA SANTA TEREZINHA",
+    "complemento": "",
+    "email": "direct.josue@gmail.com",
+    "observacao": "",
+    "tipoParceiro": "CLIENTE",
+    "cnpjCpf": "59978367000127",
+    "cep": "12.309-010",
+    "uf": "SP",
+    "telefone": "(12) 9922-2843",
+    "celular": "12992228437",
+    "pais": "BR",
+    "personalidade": "JURIDICA",
+    "numero": "56"
+}

@@ -14,10 +14,9 @@ builder.Services.AddHttpClient<ConsultaExternaService>();
 builder.Services.AddControllers();
 builder.Services.AddCors(options => 
 {
-    options.AddPolicy(
-        "AllowFrontend", 
-        policy => policy
-            .SetIsOriginAllowed(_ => true)
+    options.AddPolicy("AllowFrontend", policy => 
+        policy
+            .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod()
     );
@@ -31,7 +30,6 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-app.UseRouting();
 app.UseCors("AllowFrontend");
 app.MapControllers();
 app.Run();

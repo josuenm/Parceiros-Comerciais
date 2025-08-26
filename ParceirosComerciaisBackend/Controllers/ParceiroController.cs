@@ -29,8 +29,15 @@ namespace ParceirosComerciais.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CriarParceiroDto body)
         {
-            await _service.Create(body);
-            return StatusCode(201);
+            try
+            {
+                await _service.Create(body);
+                return StatusCode(201);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
     }

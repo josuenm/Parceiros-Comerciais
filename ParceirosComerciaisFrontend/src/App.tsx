@@ -43,7 +43,7 @@ export default function App() {
 
   useEffect(() => {
     if (error?.message) {
-      toast.error("Erro ao buscar lista de parceiros");
+      toast.error(error.message);
       console.log("Erro ao buscar lista de parceiros", error);
     }
   }, [error]);

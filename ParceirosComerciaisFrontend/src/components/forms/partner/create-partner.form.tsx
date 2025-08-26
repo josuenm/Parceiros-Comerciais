@@ -38,6 +38,8 @@ export function CreatePartnerForm({ form, onSuccess }: Props) {
                 form.setValue("logradouro", res.logradouro);
             }
         } catch(e) {
+            const error = e as Error;
+            toast.error(error.message);
             console.error("Erro ao buscar cep", e);
         } finally {
             setCepLoading(false);
@@ -66,6 +68,8 @@ export function CreatePartnerForm({ form, onSuccess }: Props) {
                 }
             }
         } catch(e) {
+            const error = e as Error;
+            toast.error(error.message);
             console.error("Erro ao buscar cnpj", e);
         } finally {
             setCnpjLoading(false);
@@ -78,7 +82,8 @@ export function CreatePartnerForm({ form, onSuccess }: Props) {
             await PartnerAPI.create(data);
             onSuccess?.();
         } catch(e) {
-            toast.error("Erro ao tentar adicionar parceiro");
+            const error = e as Error;
+            toast.error(error.message);
             console.error("Erro ao tentar adicionar parceiro", e);
         } finally {
             setLoading(false);

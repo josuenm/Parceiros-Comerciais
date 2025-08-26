@@ -29,5 +29,5 @@ docker-compose up --build -d
 ```
 2. Acesse o frontend em:
 ```sh
-http://localhost:5173
+http://localhost:3000
 ```
